@@ -48,6 +48,18 @@ const ButtonWrapper = styled.div`
     font-size: 12px;
 `;
 
+const getDaysToTet = () => {
+    const today = new Date();
+    const tet = new Date("2025-01-28");
+    // Calculate the difference in milliseconds
+    const differenceInMilliseconds = tet.getTime() - today.getTime();
+
+    // Convert milliseconds to days
+    const differenceInDays = Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24));
+
+    return differenceInDays; // Return the difference in days
+}
+
 const cardList = [
     {
         id: "1",
@@ -104,11 +116,12 @@ export const Home = () => {
 
     };
     const endedSession = localStorage.getItem("END_SESSION");
-
+    const daysToTet = getDaysToTet();
     return (
         <HomeWrapper>
             <HeaderWrapper>
                 <Text>Chào vợ yêu 😍</Text>
+                <Text>Chỉ còn {daysToTet} ngày nữa là gặp vợ yêu rồi, sướng quá, kkk. 😍</Text>
                 <SubText>Trò chơi nhỏ này mang tên "Món quà bí ẩn". Vk được chọn duy nhất <b>một lần</b>. Vk hãy ấn vào ảnh để xem có gì bí ẩn bên trong nhé.</SubText>
             </HeaderWrapper>
             {
